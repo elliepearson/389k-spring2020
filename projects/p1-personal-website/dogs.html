@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    body {
+      text-align: center;
+      font-family: Geneva;
+      background-color:
+    }
+    p{
+      display:inline;
+    }
+    #head{
+      color: purple;
+      background-color: #d2d6e3;
+      height: 250px;
+      display: block;
+    }
+    .dogs{
+      height: 500px;
+      padding-top: 10px;
+      margin-top: 30px;
+      background-color: #cee8ce;
+    }
+    ul{
+      list-style-type: none;
+    }
+    img{
+      width: 300px;
+      transform: rotate(90deg);
+      margin: 30px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td{
+      padding: 10px;
+    }
+    th{
+      background-color: #e8cee8;
+    }
+    td{
+      background-color: white;
+    }
+    @media only screen and (max-width: 1000px) {
+      img{
+        width: 100px;
+        transform: rotate(90deg);
+        margin: 30px;
+      }
+      .dogs{
+        height:300px;
+        width: 650px;
+        padding-top: 10px;
+        margin-top: 30px;
+        background-color: #cee8ce;
+      }
+    }
+    </style>
+  </head>
+
+  <body>
+    <div id = "head">
+      <center>
+
+      <bold><h1>
+        My dogs
+      </h1></bold>
+      <ul>
+        <li><a href = "index.html"> Home </a></li>
+        <li><a href = "dogs.html">My Dogs </a></li>
+      </ul>
+    </center>
+    <p>My dogs names are Daisy and Poppy, both named after flowers.
+    </p>
+    <p>Daisy is the white one with the beard and she is around 4-5 years old. She's very nervous and has a lot of anxiety so she shakes a lot. She's very scared around other dogs, except for Poppy.
+    </p>
+    <p>Poppy is just over year old and we got her over the summer. We decided to rescue instead of getting them from the pound or a breeder because there are so many dogs in the world looking for a home.
+    </p>
+    </div>
+    <center>
+      <div class = "dogs">
+        <caption> Pictures of my dogs </caption>
+        <table>
+          <tr>
+            <th>Poppy</th>
+            <th>Daisy</th>
+            <th>Both</th>
+          </tr>
+          <tr>
+            <td><img src = "poppy.jpg"></td>
+            <td><img src = "daisy.jpg"></td>
+            <td><img src = "doggies.jpg"></td>
+          </tr>
+        </table>
+      </div>
+    </center>
+  </body>
+</html>

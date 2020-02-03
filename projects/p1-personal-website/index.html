@@ -1,12 +1,3 @@
-<!--
-One or more pictures - <img />
-Use of multiple pages (in addition to index.html) - linking with <a />
-Use the resources discussed in class to find another tag that we have not covered. Use them! -->
-
-<!--
-
-display: inline
-Use media queries  -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,12 +6,13 @@ Use media queries  -->
       text-align: center;
       font-family: Geneva;
     }
-
+    p{
+      display:block;
+    }
     #head{
-
       color: purple;
       background-color: #d2d6e3;
-      height: 400px;
+      height: 500px;
       display: block;
     }
     ul{
@@ -54,6 +46,15 @@ Use media queries  -->
       background-color: #96a3d1;
       width: 500px;
     }
+    a:visited {
+    color:#893eff;
+    }
+
+    @media only screen and (max-width: 800px) {
+      body {
+        background-color: lightblue;
+      }
+    }
     </style>
 
   </head>
@@ -63,12 +64,16 @@ Use media queries  -->
       <bold><h1>
       Welcome to my webpage
       </h1></bold>
+      <p>
+      </p>
       <center>
       <ul>
-      <li> Home </li>
-      <li a href = '#'> My Dogs </li>
+      <li><a href = "index.html"> Home </a></li>
+      <li><a href = "dogs.html">My Dogs </a></li>
       </ul>
-      <img id = "pic1" src = "me.jpg">
+      <img id = "pic1" alt = "me" src = "me.jpg">
+      <p> My name is Ellie and I attend the University of Maryland. </p>
+      <p> Some fun facts about me are I love dogs and I love to paint. </p>
       </center>
     </div>
     <center>
