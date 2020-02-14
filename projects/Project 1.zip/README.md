@@ -47,10 +47,7 @@ CSS (5 points each):
 ## Requirements
 
 This website must be about you! Must be *somewhat aesthetic*.
-<<<<<<< HEAD
 Also, you may not use third party CSS files like Bootstrap and Materialize (Normalize CSS is the exception).
-=======
->>>>>>> 29331599b5bf3379c76dfcd154d919ec858bd630
 
 ## Code Distribution
 
