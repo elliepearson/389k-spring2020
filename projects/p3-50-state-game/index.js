@@ -78,22 +78,10 @@ var count = 0;
  * will be different. Make sure you Google! We urge you to post in Piazza if
  * you are stuck.
  */
- //https://api.census.gov/data/2013/language?get=EST,LANLABEL,NAME&for=state:*&LAN=625
-//  var j = $.getJSON("https://api.census.gov/data/2013/language?get=EST,LANLABEL,NAME&for=state:*&LAN=625", function(data){
-// alert(data);
-// });
-// var data = $.ajax({
-//   url: "https://api.census.gov/data/2013/language?get=EST,LANLABEL,NAME&for=state:*&LAN=625",
-//   context: document.body
-// }).done(function() {
-//   $( this ).addClass( "done" );
-// });
 
-// alert(j);
 function spanish(s){
     $("#" + s).hover(
       function() {
-        //console.log('data');
            $.get("https://api.census.gov/data/2013/language?get=EST,LANLABEL,NAME&for=state:*&LAN=625", function(data) {
              var key = Object.keys(abvMap).find(i => abvMap[i] === s);
              var index = Object.keys(abvMap).indexOf(key) +1;
@@ -102,14 +90,11 @@ function spanish(s){
              alert(key + ": "+ newStrin);
           });
         },
-        // ,
+
     function(event){
       event.stopPropagation();
-
   });
-
   };
-
 
 
   function commas(num)
@@ -118,8 +103,6 @@ function spanish(s){
       num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
       return num_parts.join(".");
     }
-
-
 
 
  function startTimer(duration, display) {
@@ -172,13 +155,9 @@ function lose(){
       var lostStates = document.createElement("p");
       lostStates.innerHTML = states[i];
       lostStates.id = abvMap[states[i]];
-      //lostStates.id = states[i];
-
       document.getElementById("list").appendChild(lostStates);
       spanish(abvMap[states[i]]);
-      //spanish(states[i]);
-
-  }
+    }
   }
 }
 
@@ -212,9 +191,6 @@ function lose(){
       var para = document.createElement("div");
       para.innerHTML = newString;
       para.id = abvMap[newString];
-
-      //para.id = newString;
-
       document.getElementById("list").appendChild(para);
       //spanish(abvMap[newString]);
       spanish(abvMap[newString]);
