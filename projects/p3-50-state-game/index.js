@@ -90,13 +90,37 @@ var count = 0;
 // });
 
 // alert(j);
+function spanish(s){
+    $("#" + s).hover(
+      function() {
+        //console.log('data');
+           $.get("https://api.census.gov/data/2013/language?get=EST,LANLABEL,NAME&for=state:*&LAN=625", function(data) {
+             var key = Object.keys(abvMap).find(i => abvMap[i] === s);
+             var index = Object.keys(abvMap).indexOf(key) +1;
+             var number = data[index][0];
+             var newStrin = commas(number);
+             alert(key + ": "+ newStrin);
+          });
+        },
+        // ,
+    function(event){
+      event.stopPropagation();
 
-// $("#list").on("onmouseover", function() {
-    //var school = $("input").val();
-    $.get("https://api.census.gov/data/2013/language?get=EST,LANLABEL,NAME&for=state:*&LAN=625", function(data) {
-        alert(data);
-    });
-// });
+  });
+
+  };
+
+
+
+  function commas(num)
+    {
+      var num_parts = num.split(".");
+      num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return num_parts.join(".");
+    }
+
+
+
 
  function startTimer(duration, display) {
     var timeleft = duration;
@@ -117,8 +141,6 @@ var count = 0;
         clearInterval(downloadTimer);
         lose();
       }
-
-          //
       },1000);
 
     document.getElementById("start").disabled = true;
@@ -149,8 +171,13 @@ function lose(){
     if(!included.includes(states[i])){
       var lostStates = document.createElement("p");
       lostStates.innerHTML = states[i];
-      lostStates.id = states[i];
+      lostStates.id = abvMap[states[i]];
+      //lostStates.id = states[i];
+
       document.getElementById("list").appendChild(lostStates);
+      spanish(abvMap[states[i]]);
+      //spanish(states[i]);
+
   }
   }
 }
@@ -182,10 +209,16 @@ function lose(){
   if(states.includes(newString)){
     if(!included.includes(newString)){
       included.push(newString);
-      var para = document.createElement("p");
+      var para = document.createElement("div");
       para.innerHTML = newString;
-      para.id = newString;
+      para.id = abvMap[newString];
+
+      //para.id = newString;
+
       document.getElementById("list").appendChild(para);
+      //spanish(abvMap[newString]);
+      spanish(abvMap[newString]);
+
       count+=1;
   }
     clear();
