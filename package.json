@@ -1,0 +1,24 @@
+{
+  "name": "loader",
+  "version": "1.0.0",
+  "description": "![Image](https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_960_720.png)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elliepearson/389k-spring2020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elliepearson/389k-spring2020/issues"
+  },
+  "homepage": "https://github.com/elliepearson/389k-spring2020#readme",
+  "dependencies": {
+    "express-handlebars": "^3.1.0",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {}
+}
