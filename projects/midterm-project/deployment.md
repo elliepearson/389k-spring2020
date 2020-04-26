@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Deploying using `now`
 
 You can deploy your midterm project using a neat little utility called [now](https://zeit.co/now).
@@ -16,6 +17,8 @@ To get started, install both the desktop client and the command line application
 2. Run `now --login` and authenticate yourself using the same email.
 
 
+=======
+>>>>>>> 65344a42c4201b9fc5277c28dc5446a397ff7353
 ### How to Deploy
 -----------------
 
@@ -38,6 +41,7 @@ We want to add one more command called `start` to tell `now` what command to use
 },
 ```
 
+<<<<<<< HEAD
 Now simply run `now deploy`.
 
 That's literally it. You should have a link copied to your clipboard. Paste it into your browser, and view your live application!
@@ -58,6 +62,8 @@ Or, if you want to use the `.env` file as is, run:
 And it will turn your `.env` file into a `-e` command automatically.
 
 
+=======
+>>>>>>> 65344a42c4201b9fc5277c28dc5446a397ff7353
 
 # Deploying using `Heroku`
 Visit the Heroku website here: https://www.heroku.com/ and register for an account.

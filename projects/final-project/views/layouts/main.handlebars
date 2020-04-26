@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+  <title>Final Project</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+</head>
+{{#if name}}
+<center><h1>{{name}}</h1></center>
+{{else}}
+<h1>Shows</h1>
+{{/if}}
+
+<div class = "show">
+</div>
+
+<div class="nav">
+
+    <br>
+    <br>
+    <a class = "tag" href="/show/getShows">Show all TV Shows</a>
+    <a class = "tag">
+    <label for="genres">Find a Genre:</label>
+      <input  onchange="javascript:handleSelect(this)" type="text" name="genre" size="10" placeholder="Genre..."></textarea>
+	   </a>
+     <a class = "tag">
+     <label  for="years">Find a Year:</label>
+       <input  onchange="javascript:handleSelect1(this)" type="text" name="year" size="10" placeholder="Year..."></textarea>
+      </a>
+       <select  onchange="javascript:handleSelect2(this)">
+         <option value="">Find A Show's Review</option>
+         {{#each data}}
+         <option value={{this._id}}>{{this.title}}</option>
+         {{/each}}
+       </select>
+       </div>
+</div>
+  {{{body}}}
+
+</html>

@@ -1,1 +1,121 @@
-/* Please add your own! */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Roboto+Mono:wght@300&display=swap');
+img{
+  width: 300px;
+}
+body {
+  font-family: 'Baloo Thambi 2', cursive;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+#searchbar{
+  padding: 10px;
+  background-color: #b6fcd5;
+  margin-bottom: 30px;
+  font-family: 'Baloo Thambi 2', cursive;
+
+}
+
+
+/****************
+      MAIN
+*****************/
+
+ h1 {
+    font-weight: 700;
+}
+
+h2{
+   font-weight: 500px;
+}
+
+
+article {
+    padding: 10px;
+    background-color: #ffb5c5;
+    margin-bottom: 30px;
+}
+
+.nav .tag{
+  font-family: 'Roboto Mono', monospace;
+    padding: 20px;
+    background-color: #cce3ff;
+    display: inline;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.newshow{
+  padding-top: 20px;
+
+
+}
+
+
+
+
+
+
+/****************
+      FORM
+*****************/
+
+.input-field {
+    padding: 10px 0;
+}
+
+input {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+textarea {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 80%;
+}
+
+button {
+	border: none;
+	padding: 10px;
+	background-color: #fec8ff;
+	color: grey;
+	font-size: 20px;
+  font-family: 'Baloo Thambi 2', cursive;
+  margin-bottom: 20px;
+}
+
+
+
+/****************
+    BLOG POST
+*****************/
+
+ .title-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+    display: inline;
+    margin-right: 20px;
+}
+
+.content {
+    padding: 20px;
+    width: 60%;
+    margin: 0 auto;
+    background-color: #2c3e50;
+    color: white;
+}
+
+.content a {
+    color: white;
+}

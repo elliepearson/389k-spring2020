@@ -1,0 +1,66 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+<script>
+
+$('#createNew').on('click', function() {
+	console.log("createNewShow");
+});
+function handleSelect(elm)
+{
+window.location = "/show/genre/" + elm.value;
+}
+
+function handleSelect1(elm)
+{
+window.location = "/show/year/" + elm.value;
+}
+
+function handleSelect2(elm)
+{
+// console.log(loc);
+window.location = "/show/" + elm.value + "/reviews";
+}
+
+
+function compareStr(string1, string2) {
+		 var result = string1.localeCompare(string2);
+		 return result;
+}
+
+</script>
+
+
+
+<body>
+
+
+
+{{#if create}}
+	<div class = "newshow">
+		<button type="button" id="createNew" onclick="window.location.href = '/show/addShow';">Enter a Show</button>
+	</div>
+{{/if}}
+
+{{#if review}}
+	<div class = "newreview">
+		<button type="button" id="createNew" onclick="window.location.href = '/show/{{this}}/reviews';">Enter a Review</button>
+	</div>
+{{/if}}
+
+
+{{#each data}}
+<article>
+	<h2 class="title">{{this.title}}</h2>
+	<hr>
+  <p class="year">Release Year: {{this.year}}</p>
+  <p class="genre">Its genre is {{ this.genre}}</p>
+  <!-- <img src = {{this.url}}> -->
+</article>
+{{else}}
+
+<article>
+    <h1>There are no blog posts yet. :(</h1>
+    <a href="/show/addShow">Write your first post!</a>
+</article>
+{{/each}}
+</body>

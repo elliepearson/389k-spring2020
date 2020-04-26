@@ -1,0 +1,45 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+<script>
+
+$('#createNew').on('click', function() {
+	console.log("createNewShow");
+});
+function handleSelect(elm)
+{
+window.location = "/show/genre/" + elm.value;
+}
+
+function handleSelect1(elm)
+{
+window.location = "/show/year/" + elm.value;
+}
+
+function handleSelect2(elm)
+{
+// console.log(loc);
+window.location = "/show/" + elm.value + "/reviews";
+}
+
+ 
+
+</script>
+
+<body>
+  {{#each reviews}}
+  <article>
+  	<h2 class="rating">Rating: {{this.rating}}</h2>
+    <h4 class="comment">Comment: {{this.comment}}</h4>
+    <p class="author">By {{ this.author}}</p>
+    <!-- <img src = {{this.url}}> -->
+    <hr>
+
+  </article>
+  {{/each}}
+
+  {{#if id}}
+  <a href="/show/{{id}}/newReview">Write another review!</a>
+
+  {{/if}}
+
+</body>

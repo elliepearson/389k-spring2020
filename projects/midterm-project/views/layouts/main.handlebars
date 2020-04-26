@@ -7,24 +7,36 @@
   <title>Final Project</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 </head>
-<div class="nav">
-  <div>
-    <a href="/Players">Players</a>
-    <a href="/Sports">Sports</a>
-    <a href="/States">States</a>
-    <a href="/Alphabetical">Alphabetical</a>
-    <a href="/Championships">Championships</a>
-  </div>
+{{#if name}}
+<center><h1>{{name}}</h1></center>
+{{else}}
+<h1>Shows</h1>
+{{/if}}
+
+<div class = "show">
 </div>
 
-<body>
-  <button type="button" id="createNew">Enter a Team</button> {{{body}}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-  <script>
-    $('#createNew').on('click', function() {
-      console.log("hi");
-    });
-  </script>
-</body>
+<div class="nav">
+
+    <br>
+    <br>
+    <a class = "tag" href="/api/getShows">Show all TV Shows</a>
+
+    <a class= "tag" href="/api/oldest">Find the Oldest Show</a>
+    <a class = "tag">
+    <label  for="cars">Find a Genre:</label>
+    <select  onchange="javascript:handleSelect(this)">
+      <option value="">Choose One</option>
+      {{#each genre}}
+      <option value={{this}}>{{this}}</option>
+      {{/each}}
+    </select>
+	</a>
+    <a class= "tag" href="/api/alphabetical">Alphabetical</a>
+    <a class= "tag" href="/api/largest">Largest Number of Seasons</a>
+    <a class= "tag" href="/api/random">Find a Random Show!</a>
+  </div>
+</div>
+  {{{body}}}
 
 </html>
