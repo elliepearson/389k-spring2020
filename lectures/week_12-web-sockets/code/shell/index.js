@@ -52,27 +52,43 @@ app.get('/movies', function(req, res) {
 //Task 2 - Step 1: Handle POST request
 app.post('/movies', function(req, res) {
     //Task 2 - Step 2: Create new movie
+    var title  = req.body.title;
+    var genre = req.body.genre;
+    var movie = {
+      title: title,
+      genre: genre
+    }
     //Task 2 - Step 3 & 4: Save new movie to database, emit new movie message to clients
+    movie.save(function(err){
+      if(err) throw err;
+      io.emit('new movie', movie);
+      return res.send("Done");
+    })
 });
 
 //An event listener to listen for client connecting to our server
 io.on('connection', function(socket) {
     console.log('NEW connection');
     /*
-        - Handle listening for "messages" 
+        - Handle listening for "messages"
             -> socket.on(message, function(msg)){...}
         - Sending out messages to ALL clients currently connected
             -> io.emit(message, contentOfMessage)
     */
 
     /*        ===================TASK 1====================
-        TASK 1 (SERVER END): Handle a new chat message from a client 
+        TASK 1 (SERVER END): Handle a new chat message from a client
         Steps to compelete task 1 on server end.
             1. Listen for a new chat message
             2. Emit new chat message to all clients currently connected
     */
 
     //Task 1 - Step 1: Listen for a new chat message
+    socket.on('chat message', function(msg){
+      io.emit('chat message', msg);
+
+    });
+
         //Task 2 - Step 2: Emit new chat message to all clients currently connected
     socket.on('disconnect', function() {
         console.log('User has disconnected');

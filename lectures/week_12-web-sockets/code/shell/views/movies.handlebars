@@ -9,3 +9,26 @@
 <li>{{this.title}}: {{this.genre}}</li>
 {{/each}}
 </ul>
+<script>
+$('#movies').submit(function(){
+  var title = $('#title').val();
+  var genre = $('#genre').val();
+  $.ajax({
+    type: "POST",
+    url: "/movies",
+    data: {
+      title: title,
+      genre: genre
+    },
+    success: function(data, status){
+      console.log(data);
+    }
+  });
+  return false;
+});
+
+socket.on('new movie', function(mov){
+  $('#movList').append($('<li>').text(mov.title + ": " + mov.genre));
+
+});
+</script>
