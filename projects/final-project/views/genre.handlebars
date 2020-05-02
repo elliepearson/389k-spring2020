@@ -1,5 +1,6 @@
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
 
+<script>
 $('#createNew').on('click', function() {
 	console.log("createNewShow");
 });
@@ -45,27 +46,29 @@ window.location = "/show/tweets/" + elm.value;
 }
 function handleSelect7(elm)
 {
+
 window.location = "/show/youtube/" + elm.value;
 }
-
 </script>
+
 <body>
-	<br>
-<article>
-  <form id="shows">
-    <div class="input-field">
-      <label>Show Title:</label>
-      <input id = "title" type="text" name="title" size="50" placeholder="Show Title...">
-    </div>
-    <div class="input-field">
-      <label>Release Year:</label>
-      <input id = "year" type="number" name="year" size="50" placeholder="Year..."></textarea>
-    </div>
-    <div class="input-field">
-      <label>Genre:</label>
-      <input id = "genre" type="text" name="genre" size="50" placeholder="Genre..."></textarea>
-    </div>
-		<button>POST</button>
-  </form>
-</article>
+	<center>
+  {{#each tv}}
+  <article class = "genres">
+  	<h2 class="title">{{this.title}}</h2>
+  	<hr>
+    <p class="year">Release Year: {{this.year}}</p>
+		<hr>
+  </article>
+  {{else}}
+
+  <article>
+      <h1>There are no shows of this genre yet. :(</h1>
+      <a href="/show/addShow">Write your first post!</a>
+  </article>
+  {{/each}}
+</center>
+
+
+
 </body>

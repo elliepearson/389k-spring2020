@@ -21,46 +21,61 @@ function handleSelect2(elm)
 window.location = "/show/" + elm.value + "/reviews";
 }
 
-
-function compareStr(string1, string2) {
-		 var result = string1.localeCompare(string2);
-		 return result;
+function handleSelect3(elm)
+{
+// console.log(loc);
+window.location = "/show/" + elm.value + "/newReview";
 }
 
+
+function handleSelect4(elm)
+{
+// console.log(loc);
+window.location = "/show/" + elm.value;
+}
+
+function handleSelect5(elm)
+{
+
+window.location = "/show/" + elm.value + "/review/delete";
+}
+
+function handleSelect6(elm)
+{
+
+window.location = "/show/tweets/" + elm.value;
+}
+
+function handleSelect7(elm)
+{
+
+window.location = "/show/youtube/" + elm.value;
+}
 </script>
 
 
 
 <body>
 
+<div id="showList">
 
-
-{{#if create}}
-	<div class = "newshow">
-		<button type="button" id="createNew" onclick="window.location.href = '/show/addShow';">Enter a Show</button>
-	</div>
-{{/if}}
-
-{{#if review}}
-	<div class = "newreview">
-		<button type="button" id="createNew" onclick="window.location.href = '/show/{{this}}/reviews';">Enter a Review</button>
-	</div>
-{{/if}}
-
-
-{{#each data}}
-<article>
+{{#each tv}}
+<center>
+<article class = "showEntry">
 	<h2 class="title">{{this.title}}</h2>
 	<hr>
   <p class="year">Release Year: {{this.year}}</p>
-  <p class="genre">Its genre is {{ this.genre}}</p>
-  <!-- <img src = {{this.url}}> -->
+  <p class="genre">Genre: {{ this.genre}}</p>
 </article>
+</center>
 {{else}}
-
-<article>
-    <h1>There are no blog posts yet. :(</h1>
-    <a href="/show/addShow">Write your first post!</a>
-</article>
+<center>
+		<h1>There are no shows of that year yet. :(</h1>
+		<a href="/show/addShow">Write your first post!</a>
+</center>
 {{/each}}
+
+</div>
+
+
 </body>

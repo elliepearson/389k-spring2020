@@ -1,29 +1,71 @@
-<h1>Input New Show</h1>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+<script>
+$('#createNew').on('click', function() {
+	console.log("createNewShow");
+});
+function handleSelect(elm)
+{
+window.location = "/show/genre/" + elm.value;
+}
+
+function handleSelect1(elm)
+{
+window.location = "/show/year/" + elm.value;
+}
+
+function handleSelect2(elm)
+{
+// console.log(loc);
+window.location = "/show/" + elm.value + "/reviews";
+}
+
+function handleSelect3(elm)
+{
+// console.log(loc);
+window.location = "/show/" + elm.value + "/newReview";
+}
+
+
+function handleSelect4(elm)
+{
+// console.log(loc);
+window.location = "/show/" + elm.value;
+}
+
+function handleSelect5(elm)
+{
+
+window.location = "/show/" + elm.value + "/review/delete";
+}
+function handleSelect6(elm)
+{
+
+window.location = "/show/tweets/" + elm.value;
+}
+function handleSelect7(elm)
+{
+
+window.location = "/show/youtube/" + elm.value;
+}
+</script>
 <article>
   {{#if id}}
+	<br>
   <form method="POST" action="/show/{{id}}/newReview">
-
     <div class="input-field">
-      <label>Show Image:</label>
-      <input type="text" name="url" size="50" placeholder="Image URL...">
+      <label>Rating:</label>
+      <input type="number" step="any" name="rating" size="50" placeholder="Rating (0-10)...">
     </div>
     <div class="input-field">
-      <label>Number of Seasons:</label>
-      <input type="number" name="season" size="50" placeholder="Seasons...">
+      <label>Comment:</label>
+      <input type="text" name="comment" size="50" placeholder="Comment..."></textarea>
     </div>
     <div class="input-field">
-      <label>Release Year:</label>
-      <input type="number" name="release" size="50" placeholder="Year..."></textarea>
+      <label>Author:</label>
+      <input type="text" name="author" size="50" placeholder="Author... "></textarea>
     </div>
-    <div class="input-field">
-      <label>Genres:</label>
-      <textarea type="text" name="genre" rows="20" placeholder="Genres... (separate by spaces)"></textarea>
-    </div>
-    <button type="submit">Create Blog Post </button>
+    <button type="submit">POST</button>
   </form>
-  {{/if}}
-  <div class="input-field">
-    <label>Show Title:</label>
-    <input type="text" name="title" size="50" placeholder="Show Title...">
-  </div>
+{{/if}}
 </article>

@@ -4,7 +4,7 @@
 
 Name: Ellen Pearson
 
-Date: 4/1/2020
+Date: 5/2/2020
 
 Project Topic: Popular TV Shows
 
@@ -15,29 +15,42 @@ URL:
 
 ### 1. Data Format and Storage
 
-Data point fields:
+Data point fields for TV Shows:
 - `Field 1`: Title          `Type: String`
-- `Field 2`: Image          `Type: String`
-- `Field 3`: Seasons        `Type: Number`
-- `Field 4`: Release Year   `Type: Number`
-- `Field 5`: Genre           `Type: [String]`
+- `Field 2`: Release Year   `Type: Number`
+- `Field 3`: Genre          `Type: String`
+- `Field 4`: Reviews        `Type: [String]`
 
-Schema:
+Data point fields for Reviews:
+- `Field 1`: Rating          `Type: Float`
+- `Field 2`: Comment         `Type: String`
+- `Field 3`: Author          `Type: String`
+
+Schema for TV Show:
 ```javascript
 {
     title: String,
-    image: String,
-    seasons: Number,
     year: Number,
-    genre: [String]
+    genre: String
+}
+```
+
+Schema for Review:
+```javascript
+{
+    rating: Number,
+    comment: String,
+    author: String
 }
 ```
 
 ### 2. Add New Data
 
+##Add Show
+
 HTML form route: `/addShow`
 
-POST endpoint route: `/api/addShow`
+POST endpoint route: `/show/addShow`
 
 Example Node.js POST request to endpoint:
 ```javascript
@@ -45,16 +58,99 @@ var request = require("request");
 
 var options = {
     method: 'POST',
-    url: 'http://localhost:3000/api/addShow',
+    url: 'http://localhost:3000/show/addShow',
     headers: {
         'content-type': 'application/x-www-form-urlencoded'
     },
     form: {
         title: 'The Office',
-        image: "https://img.nbc.com/sites/nbcunbc/files/images/2016/1/19/MDot-TheOffice-640x360-MP.jpg",
-        seasons: 9,
         year: 2005,
-        genre: ["Mockumentary", "Sitcom", "Comedy"]
+        genre: "Comedy"
+    }
+};
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+##Add Review to Show
+
+HTML form route: `/:id/newReview`
+
+POST endpoint route: `/show/:id/newReview`
+
+Example Node.js POST request to endpoint:
+```javascript
+var request = require("request");
+
+var options = {
+    method: 'POST',
+    url: 'http://localhost:3000/show/5ea629efd3a10c5baec5ad15/newReview',
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+    },
+    form: {
+        rating: 7.9,
+        comment: "Okay...",
+        author: "Ellie Pearson"
+    }
+};
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+### 3. Delete Data
+
+##Delete Show
+
+HTML form route: `/:id`
+
+DELETE endpoint route: `/show/:id`
+
+Example Node.js DELETE request to endpoint:
+```javascript
+var request = require("request");
+
+var options = {
+    method: 'DELETE',
+    url: 'http://localhost:3000/show/5ea629efd3a10c5baec5ad15',
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+    },
+    form: {
+        id: '5ea629efd3a10c5baec5ad15',
+    }
+};
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  console.log(body);
+});
+```
+
+##Delete Review
+HTML form route: `/:id/review/delete`
+
+DELETE endpoint route: `/show/:id/review/delete`
+
+Example Node.js DELETE request to endpoint:
+```javascript
+var request = require("request");
+
+var options = {
+    method: 'DELETE',
+    url: 'http://localhost:3000/show/5ea629efd3a10c5baec5ad15/review/delete',
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+    },
+    form: {
+        id: '5ea629efd3a10c5baec5ad15',
     }
 };
 
@@ -67,17 +163,19 @@ request(options, function (error, response, body) {
 
 ### 3. View Data
 
-GET endpoint route: `/api/getShows`
+GET endpoint route to view shows: `/show/getShows`
+GET endpoint route view show's review: `/show/:id/reviews`
 
-### 4. Search Data
 
-Search Field: `title`
-
-### 5. Navigation Pages
+### 4. Navigation Pages
 
 Navigation Filters
-1. Oldest Show -> `/oldest`
-2. Select a Genre -> `/genre/:genre_type`
-3. Alphabetical Shows -> `/alphabetical`
-4. Largest Number of Seasons -> `/largest`
-5. Random Show -> `/random`
+1. Select a Genre -> `/show/genre/:genre`
+2. Select a Year -> `/show/year/:year`
+3. Find a Show's Review -> `/show/:id/reviews`
+4. Find Tweets -> `/show/tweets/:title`
+5. Find Videos -> `/show/youtube/:title`
+
+### 5. npm packages
+1. Youtube-search -> gathers youtube videos with title
+2. Twitter -> finds Tweets with a specific query
